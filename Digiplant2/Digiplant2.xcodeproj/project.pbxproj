@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35CEF1CE248320CA003B33F0 /* PlantData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CC248320CA003B33F0 /* PlantData.xcdatamodeld */; };
 		407F2DAA2482F3DD0001DF12 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407F2DA92482F3DD0001DF12 /* AddPlantViewController.swift */; };
 		407F2DAC2483180D0001DF12 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407F2DAB2483180D0001DF12 /* Plant.swift */; };
 		4094A9792482C60300B14629 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094A9782482C60300B14629 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35CEF1CD248320CA003B33F0 /* PlantData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlantData.xcdatamodel; sourceTree = "<group>"; };
 		407F2DA92482F3DD0001DF12 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		407F2DAB2483180D0001DF12 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 		4094A9752482C60300B14629 /* Digiplant2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digiplant2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				4094A9862482C60700B14629 /* Info.plist */,
 				407F2DA92482F3DD0001DF12 /* AddPlantViewController.swift */,
 				407F2DAB2483180D0001DF12 /* Plant.swift */,
+				35CEF1CC248320CA003B33F0 /* PlantData.xcdatamodeld */,
 			);
 			path = Digiplant2;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				407F2DAC2483180D0001DF12 /* Plant.swift in Sources */,
 				407F2DAA2482F3DD0001DF12 /* AddPlantViewController.swift in Sources */,
 				4094A97B2482C60300B14629 /* SceneDelegate.swift in Sources */,
+				35CEF1CE248320CA003B33F0 /* PlantData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +352,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		35CEF1CC248320CA003B33F0 /* PlantData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				35CEF1CD248320CA003B33F0 /* PlantData.xcdatamodel */,
+			);
+			currentVersion = 35CEF1CD248320CA003B33F0 /* PlantData.xcdatamodel */;
+			path = PlantData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4094A96D2482C60300B14629 /* Project object */;
 }

@@ -12,6 +12,8 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var plantGroupDict = ["Patio": ["Plant 1", "Plant 2"],
                           "Lawn": ["Plant 3]"]]
+    // test comment by will
+    
     
 
     @IBOutlet weak var nameField: UITextField!

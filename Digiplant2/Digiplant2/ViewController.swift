@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
-    var Plants = ["Item1", "Item2"]
+    var Plants = [String]()
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     func addPlant(_ plant: String){
-        let index = 0
+        let index = Plants.count
         Plants.insert(plant, at: index)
         
         tableView.beginUpdates()

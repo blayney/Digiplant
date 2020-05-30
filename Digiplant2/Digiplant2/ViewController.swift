@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadataOutputObjectsDelegate  {
     @IBOutlet weak var tableView: UITableView!
 
-    
+    var video = AVCaptureVideoPreviewLayer()
     
     var Plants = [String]()
 
@@ -42,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FreddieRawlins")!
         let text = Plants[indexPath.row]
         cell.textLabel?.text = text
+        
         return cell
     }
 

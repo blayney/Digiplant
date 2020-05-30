@@ -17,7 +17,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var growthSlider: UISlider!
     @IBOutlet weak var groupPicker: UIPickerView!
-    
+    // added comment
     var RFIDReturn: String = "0"
     var PlantName: String = ""
     var PlantType: String = "Default Plant Type"

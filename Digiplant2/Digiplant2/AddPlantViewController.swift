@@ -23,7 +23,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var PlantType: String = "Default Plant Type"
     var GrowthLevel: Float = 0.0
     var Group: String = ""
-    var PlantID: Int = 10230
+    var PlantID: String = "10230"
     
     @IBAction func confirmButton(_ sender: UIButton) {
         PlantName = nameField.text!

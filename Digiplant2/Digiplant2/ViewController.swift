@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
 
+    
+    
     var Plants = [String]()
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -18,11 +20,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
+    // new add new button, with RFID activation call
+    @IBOutlet weak var NewAddNewPlant: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        
+                
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

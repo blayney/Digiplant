@@ -13,8 +13,12 @@ class AddPlantViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // TRIGGERS RFID SEQUENCE AND SETS RFIDRETURN TO UID FROM RFID CLASS
     }
+    
+    var RFIDReturn = 0
+    var PlantName = "New Plant"
+    var PlantType = "Default Plant Type"
     
     
     /*

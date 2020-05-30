@@ -12,7 +12,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     var plantGroupDict = ["Patio": ["Plant 1", "Plant 2"],
                           "Lawn": ["Plant 3]"]]
-    
+    // Test conflict commnet by Hughbie
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var growthSlider: UISlider!

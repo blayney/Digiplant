@@ -15,7 +15,10 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
 
     var video = AVCaptureVideoPreviewLayer()
     
-    var Plants = [String]()
+    var PlantNames = [String]() // plant names
+    var Memberships = [String]()
+    var GrowthLevel = [Float]()
+    var PlantTypes = [String]()
 
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
@@ -41,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return Plants.count
+        return PlantNames.count
     }
     
 
@@ -49,7 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FreddieRawlins")!
         
-        let text = Plants[indexPath.row]
+        let text = PlantNames[indexPath.row]
         cell.textLabel?.textAlignment = NSTextAlignment.left
         cell.textLabel?.text = "                " + text
         
@@ -67,24 +70,29 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         let action = UIAlertAction(title:"Add", style: .default) {
             (_) in guard let plant = alert.textFields?.first?.text else {return}
             print(plant)
-            self.addPlant(plant)
+            self.addPlant(plant, "Debug", "Patio", 0.0)
         }
         alert.addAction(action)
         present(alert,animated: true)
         
     }
     
-    func addPlant(_ plant: String){
-        let index = Plants.count
-        Plants.insert(plant, at: index)
+    func addPlant(_ plantName: String, _ plantType: String, _ Membership: String, _ GrowthLevel: Float){
+        let index = PlantNames.count
+        PlantNames.insert(plantName, at: index)
         
         tableView.beginUpdates()
-        tableView.insertRows(at: [IndexPath(row: Plants.count - 1, section: 0)], with: .automatic)
+        tableView.insertRows(at: [IndexPath(row: PlantNames.count - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
         }
     
     func initializeTable(){
         // runs when the app launches
+        
+        //var groupList: [String] // HUGH TODO. Contains list of every group taken from storage
+        
+        // HUGH TODO. iterate through list of all plants, calling addPlant on them
+        
     }
 }
 

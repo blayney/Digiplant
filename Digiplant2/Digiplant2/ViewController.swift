@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadataOutputObjectsDelegate  {
+    
     @IBOutlet weak var tableView: UITableView!
 
     var video = AVCaptureVideoPreviewLayer()
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+
                 
     }
     
@@ -39,10 +41,14 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         return Plants.count
     }
     
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FreddieRawlins")!
+        
         let text = Plants[indexPath.row]
-        cell.textLabel?.text = text
+        cell.textLabel?.textAlignment = NSTextAlignment.left
+        cell.textLabel?.text = "                " + text
         
         return cell
     }

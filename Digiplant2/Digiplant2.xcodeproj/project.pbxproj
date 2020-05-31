@@ -11,6 +11,7 @@
 		35CEF1D0248325CC003B33F0 /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */; };
 		407F2DAA2482F3DD0001DF12 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407F2DA92482F3DD0001DF12 /* AddPlantViewController.swift */; };
 		407F2DAC2483180D0001DF12 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407F2DAB2483180D0001DF12 /* Plant.swift */; };
+		407F2DB0248329B20001DF12 /* PlantNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407F2DAF248329B20001DF12 /* PlantNames.swift */; };
 		4094A9792482C60300B14629 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094A9782482C60300B14629 /* AppDelegate.swift */; };
 		4094A97B2482C60300B14629 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094A97A2482C60300B14629 /* SceneDelegate.swift */; };
 		4094A97D2482C60300B14629 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4094A97C2482C60300B14629 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 		35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 		407F2DA92482F3DD0001DF12 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
 		407F2DAB2483180D0001DF12 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		407F2DAF248329B20001DF12 /* PlantNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantNames.swift; sourceTree = "<group>"; };
 		4094A9752482C60300B14629 /* Digiplant2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Digiplant2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4094A9782482C60300B14629 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4094A97A2482C60300B14629 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407F2DB0248329B20001DF12 /* PlantNames.swift in Sources */,
 				4094A97D2482C60300B14629 /* ViewController.swift in Sources */,
 				35CEF1D0248325CC003B33F0 /* CoreDataUtils.swift in Sources */,
 				4094A9792482C60300B14629 /* AppDelegate.swift in Sources */,

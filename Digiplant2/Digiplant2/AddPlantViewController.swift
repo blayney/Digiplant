@@ -55,6 +55,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         self.groupPicker.delegate = self
         self.groupPicker.dataSource = self
+        self.groupPicker.setValue(UIColor.white, forKey: "TextColor")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

@@ -29,6 +29,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         guard let newGroup = CoreDataUtils.shared.saveGroup(name: groupNameStr) else { return }
     }
     
+    @IBAction func LinkSearchFunction(_ sender: Any) {
+        // Call function from CoreDataUtils
+        CoreDataUtils.shared.linkCSVToCore()
+    }
+    
+    @IBOutlet weak var SearchBox: UITextField!
+    var searchTerm: String = ""
+    @IBAction func SearchButton(_ sender: Any) {
+        searchTerm = SearchBox.text!
+        print(CoreDataUtils.shared.searchNameString(searchTerm: searchTerm))
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)

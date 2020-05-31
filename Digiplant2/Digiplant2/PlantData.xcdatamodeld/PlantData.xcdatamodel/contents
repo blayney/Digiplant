@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CommonName" representedClassName="CommonName" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Group" representedClassName="Group" syncable="YES" codeGenerationType="class">
         <attribute name="groupName" optional="YES" attributeType="String"/>
     </entity>
@@ -12,7 +15,8 @@
         <attribute name="rfidReturn" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Plant" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Group" positionX="-54" positionY="36" width="128" height="58"/>
+        <element name="Plant" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="CommonName" positionX="-54" positionY="27" width="128" height="58"/>
     </elements>
 </model>

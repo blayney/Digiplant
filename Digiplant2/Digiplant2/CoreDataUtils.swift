@@ -192,5 +192,131 @@ struct CoreDataUtils {
             print("Delete all data in Group error : \(error) \(error.userInfo)")
         }
     }
+    
+    func deleteAllNames() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CommonName")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Delete all data in Common name error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func readDataFromCSV(fileName:String, fileType: String) -> String!{
+        guard let filepath = Bundle.main.path(forResource: fileName, ofType: fileType)
+            else {
+                return nil
+        }
+        do {
+            var contents = try String(contentsOfFile: filepath, encoding: .utf8)
+            return contents
+        } catch {
+            print("File Read Error for file \(filepath)")
+            return nil
+        }
+    }
+    
+    /*func cleanRows(file:String)->String{
+        var cleanFile = file
+        cleanFile = cleanFile.replacingOccurrences(of: "\'", with: "'")
+        return cleanFile
+    }*/
+    
+    func csv(data: String) -> [String]
+    {
+        var result: [String] = []
+        let name = data.components(separatedBy: ",")
+        result = name
+        return result
+    }
+    
+    func linkCSVToCore() {
+        deleteAllNames()
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        var data=readDataFromCSV(fileName: "UniqueNames", fileType: "txt")!
+        let csvRows = csv(data: data)
+        
+        for name in csvRows {
+            let entity = NSEntityDescription.entity(forEntityName: "CommonName", in: managedContext)!
+            
+            let group = NSManagedObject(entity: entity, insertInto: managedContext)
+            
+            group.setValue(name, forKeyPath: "name")
+            
+        }
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        print("Done")
+        returnNameList()
+    }
+    
+    func returnNameList() -> [String]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CommonName")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        var nameList: [String] = []
+        
+        do {
+            var names = try managedContext.fetch(fetchRequest)
+            for nameObj in names {
+                var name = nameObj.value(forKey: "name") ?? "No name"
+                nameList.append(name as! String)
+            }
+            print(nameList.count)
+            return nameList
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func searchNameString(searchTerm: String) -> [String]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CommonName")
+        fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@", searchTerm)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            var nameObjects = try managedContext.fetch(fetchRequest)
+            var nameList: [String] = []
+            for nameObject in nameObjects {
+                var name = nameObject.value(forKey: "name") as! String
+                if nameList.count <= 10 {
+                    nameList.append(name)
+                }
+            }
+
+            return nameList
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
  
 }

@@ -26,6 +26,8 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     var TempPlantType = ""
     var TempPlantID = ""
     
+    var RecentIndexSelected: Int = 0
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
         
@@ -33,7 +35,16 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     
     func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        RecentIndexSelected = indexPath[0]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailsTransfer"{
+            let destVC = segue.destination as! DetailsViewController
+            destVC.DrawContent(NewPlantName: PlantNames[RecentIndexSelected], NewPlantType: PlantTypes[RecentIndexSelected], NewGroup: Memberships[RecentIndexSelected], NewGrowthLevel: GrowthLevels[RecentIndexSelected])
+            
+        }
+
     }
     
     // new add new button, with RFID activation call

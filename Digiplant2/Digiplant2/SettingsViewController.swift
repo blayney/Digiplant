@@ -9,7 +9,10 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return.lightContent
+        
+    }
     var groupNameStr: String = ""
 
     @IBOutlet weak var groupName: UITextField!

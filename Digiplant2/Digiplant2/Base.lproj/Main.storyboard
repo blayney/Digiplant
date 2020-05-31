@@ -29,21 +29,61 @@
             </objects>
             <point key="canvasLocation" x="-1075" y="139"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="8UD-Xb-LeR">
             <objects>
-                <viewController id="YQk-aX-BY7" sceneMemberID="viewController">
+                <viewController id="YQk-aX-BY7" customClass="DetailsViewController" customModule="Digiplant2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4A2-ut-zUC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlantName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdr-Tz-W8H">
+                                <rect key="frame" x="67" y="114" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlantType" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO4-xD-HKc">
+                                <rect key="frame" x="67" y="143" width="76" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GrowthLevel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drz-Re-aQo">
+                                <rect key="frame" x="67" y="172" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="wWe-Js-KSg">
+                                <rect key="frame" x="172" y="395" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOe-KP-bnk">
+                                <rect key="frame" x="67" y="201" width="48" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="mtG-lu-Vtm"/>
                     </view>
                     <navigationItem key="navigationItem" id="GhL-ng-zf9"/>
+                    <connections>
+                        <outlet property="Group" destination="UOe-KP-bnk" id="efj-Mg-cI0"/>
+                        <outlet property="GrowthLevel" destination="Drz-Re-aQo" id="s9y-jA-EKs"/>
+                        <outlet property="PlantName" destination="xdr-Tz-W8H" id="hSm-wv-STq"/>
+                        <outlet property="PlantType" destination="SO4-xD-HKc" id="RGK-eS-jAs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Isa-vC-d2l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1414" y="1594"/>
+            <point key="canvasLocation" x="-1414.4927536231885" y="1593.75"/>
         </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
@@ -85,7 +125,7 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
                                         </state>
                                         <connections>
-                                            <segue destination="vqp-cA-8un" kind="show" id="rnL-2D-4FP"/>
+                                            <segue destination="vqp-cA-8un" kind="show" identifier="AddPlantTransfer" id="rnL-2D-4FP"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -123,7 +163,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="YQk-aX-BY7" kind="show" id="ZGS-o9-71I"/>
+                                            <segue destination="YQk-aX-BY7" kind="show" identifier="DetailsTransfer" id="ZGS-o9-71I"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

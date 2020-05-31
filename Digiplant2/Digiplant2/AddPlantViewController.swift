@@ -18,10 +18,10 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var groupPicker: UIPickerView!
     // added comment
     var RFIDReturn: String = "0"
-    var PlantName: String = ""
+    var PlantName: String = "DefaultName"
     var PlantType: String = "Default Plant Type"
     var GrowthLevel: Float = 0.0
-    var Group: String = ""
+    var Group: String = "Debug"
     var PlantID: String = "10230"
     
     
@@ -45,9 +45,17 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // print(CoreDataUtils.shared.testReturnPlants())
         
+        
+
         // Close the add plant screen
-        dismiss(animated: true, completion: nil)
+
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let destVC = segue.destination as! ViewController
+        destVC.addPlant(PlantName, PlantType, Group, GrowthLevel)
+    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

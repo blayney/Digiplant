@@ -17,11 +17,22 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     
     var PlantNames = [String]() // plant names
     var Memberships = [String]()
-    var GrowthLevel = [Float]()
+    var GrowthLevels = [Float]()
     var PlantTypes = [String]()
 
+    var TempPlantName = ""
+    var TempGrowthLevel = 0.0
+    var TempGroup = ""
+    var TempPlantType = ""
+    var TempPlantID = ""
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
+        
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     
@@ -47,6 +58,10 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         return PlantNames.count
     }
     
+    func exec(){
+        addPlant("Test", "Debug", "Patio", 0.0)
+        
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -77,16 +92,28 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         
     }
     
+    @IBAction func UnwindToOne(_ sender: UIStoryboardSegue){
+        
+        print("Ran unwind function")
+    }
+    
     func addPlant(_ plantName: String, _ plantType: String, _ Membership: String, _ GrowthLevel: Float){
         let index = PlantNames.count
         PlantNames.insert(plantName, at: index)
-        
+        Memberships.insert(Membership, at: index)
+        GrowthLevels.insert(GrowthLevel, at: index)
+        PlantTypes.insert(plantType, at: index)
+
+
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: PlantNames.count - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
         }
     
     func initializeTable(){
+        //CoreDataUtils.shared.deleteAllPlants()
+        print(CoreDataUtils.shared.returnPlantList()!)
+        //print("ran initialize table")
         // runs when the app launches
         
         var groupList: [String] = CoreDataUtils.shared.returnGroupList() ?? ["Default"] // Contains list of every group taken from storage

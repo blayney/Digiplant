@@ -52,8 +52,11 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier != "SetTypeTransfer"{
         let destVC = segue.destination as! ViewController
-        destVC.addPlant(PlantName, PlantType, Group, GrowthLevel)
+            destVC.addPlant(PlantName, PlantType, Group, GrowthLevel)
+            
+        }
     }
 
     

@@ -334,7 +334,7 @@
                                         </state>
                                         <connections>
                                             <action selector="confirmButton:" destination="vqp-cA-8un" eventType="touchUpInside" id="p9o-sS-cjC"/>
-                                            <segue destination="CqJ-kj-lxT" kind="show" id="Y1u-iB-25f"/>
+                                            <segue destination="CqJ-kj-lxT" kind="show" identifier="SetTypeTransfer" id="Y1u-iB-25f"/>
                                         </connections>
                                     </button>
                                 </subviews>

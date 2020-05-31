@@ -38,6 +38,13 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         print(PlantName)
         print(GrowthLevel)
         print(Group)
+        
+        // Write the values for this plant into the Core Data
+        guard let newPlant = CoreDataUtils.shared.save(name: PlantName, plantType: PlantType, plantID: PlantID, growthLevel: GrowthLevel, group: Group, rfidReturn: RFIDReturn) else { return }
+        
+        print(CoreDataUtils.shared.testReturn())
+        
+        // Close the add plant screen
         dismiss(animated: true, completion: nil)
     }
     

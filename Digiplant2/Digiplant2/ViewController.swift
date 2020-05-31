@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadataOutputObjectsDelegate  {
+class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadataOutputObjectsDelegate, UISearchBarDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -19,7 +19,8 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     var Memberships = [String]()
     var GrowthLevels = [Float]()
     var PlantTypes = [String]()
-
+    var LastWateredDate = [String]()
+    
     var TempPlantName = ""
     var TempGrowthLevel = 0.0
     var TempGroup = ""
@@ -41,6 +42,8 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
             destVC.NewPlantTypeLocal = PlantTypes[RecentIndexSelected]
             destVC.NewGroupLocal = Memberships[RecentIndexSelected]
             destVC.NewGrowthLevelLocal = GrowthLevels[RecentIndexSelected]
+            destVC.NewLastWateredDateLocal = LastWateredDate[RecentIndexSelected]
+            
         }
 
     }
@@ -90,11 +93,12 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         
         let text = PlantNames[indexPath.row]
         cell.textLabel?.textAlignment = NSTextAlignment.left
-        cell.textLabel?.text = "                " + text
+        cell.textLabel?.text = "                  " + text
         
         return cell
     }
 
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBAction func TappedAddPlant() {
         
@@ -124,7 +128,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         Memberships.insert(Membership, at: index)
         GrowthLevels.insert(GrowthLevel, at: index)
         PlantTypes.insert(plantType, at: index)
-
+        LastWateredDate.insert("Never", at: index)
 
         tableView.beginUpdates()
         tableView.insertRows(at: [IndexPath(row: PlantNames.count - 1, section: 0)], with: .automatic)

@@ -14,12 +14,13 @@ class DetailsViewController: UIViewController {
     var NewPlantTypeLocal: String = "Debug"
     var NewGroupLocal: String = "Debug"
     var NewGrowthLevelLocal: Float = 0.00
+    var NewLastWateredDateLocal: String = "Not Declared"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        DrawContent(NewPlantName: NewPlantNameLocal, NewPlantType: NewPlantTypeLocal, NewGroup: NewGroupLocal, NewGrowthLevel: NewGrowthLevelLocal)
+        DrawContent(NewPlantName: NewPlantNameLocal, NewPlantType: NewPlantTypeLocal, NewGroup: NewGroupLocal, NewGrowthLevel: NewGrowthLevelLocal, NewLastWateredDate: NewLastWateredDateLocal)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -31,16 +32,18 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var PlantType: UILabel!
     @IBOutlet weak var GrowthLevel: UILabel!
     @IBOutlet weak var Group: UILabel!
+    @IBOutlet weak var LastWatered: UILabel!
     
     // Just a debugging tool to output from the API
     @IBOutlet weak var APILabel: UILabel!
     
     
-    func DrawContent(NewPlantName: String, NewPlantType: String, NewGroup: String, NewGrowthLevel: Float){
+    func DrawContent(NewPlantName: String, NewPlantType: String, NewGroup: String, NewGrowthLevel: Float, NewLastWateredDate: String){
         PlantName.text = NewPlantName
         PlantType.text = NewPlantType
         GrowthLevel.text = String(NewGrowthLevel)
         Group.text = NewGroup
+        LastWatered.text = NewLastWateredDate
         
         // Based on code from https://learnappmaking.com/urlsession-swift-networking-how-to/
         

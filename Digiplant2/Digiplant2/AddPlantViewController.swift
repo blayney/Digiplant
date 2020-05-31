@@ -10,8 +10,7 @@ import UIKit
 
 class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    var plantGroupDict = ["Patio": ["Plant 1", "Plant 2"],
-                          "Lawn": ["Plant 3]"]]
+    var plantGroupArray = CoreDataUtils.shared.returnGroupList() ?? ["Default"]
 
 
     @IBOutlet weak var nameField: UITextField!
@@ -35,16 +34,16 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         GrowthLevel = growthSlider.value
         
-        Group = Array(plantGroupDict.keys)[groupPicker.selectedRow(inComponent: 0)]
+        Group = plantGroupArray[groupPicker.selectedRow(inComponent: 0)]
         
-        print(PlantName)
-        print(GrowthLevel)
-        print(Group)
+        // print(PlantName)
+        // print(GrowthLevel)
+        // print(Group)
         
         // Write the values for this plant into the Core Data
-        guard let newPlant = CoreDataUtils.shared.save(name: PlantName, plantType: PlantType, plantID: PlantID, growthLevel: GrowthLevel, group: Group, rfidReturn: RFIDReturn) else { return }
+        guard let newPlant = CoreDataUtils.shared.savePlant(name: PlantName, plantType: PlantType, plantID: PlantID, growthLevel: GrowthLevel, group: Group, rfidReturn: RFIDReturn) else { return }
         
-        print(CoreDataUtils.shared.testReturn())
+        // print(CoreDataUtils.shared.testReturnPlants())
         
         // Close the add plant screen
         dismiss(animated: true, completion: nil)
@@ -70,11 +69,11 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return Array(plantGroupDict.keys).count
+        return plantGroupArray.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(plantGroupDict.keys)[row]
+        return plantGroupArray[row]
     }
     
     

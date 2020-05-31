@@ -15,7 +15,7 @@ import UIKit
 struct CoreDataUtils {
     static let shared = CoreDataUtils()
     
-    func save(name: String, plantType: String, plantID: String, growthLevel: Float, group: String, rfidReturn: String) -> Plant? {
+    func savePlant(name: String, plantType: String, plantID: String, growthLevel: Float, group: String, rfidReturn: String) -> Plant? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
           return nil
         }
@@ -42,7 +42,29 @@ struct CoreDataUtils {
         }
     }
     
-    func testReturn() -> [NSManagedObject]? {
+    func saveGroup(name: String) -> Group? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+          return nil
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Group", in: managedContext)!
+        
+        let group = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        group.setValue(name, forKeyPath: "groupName")
+        
+        do {
+            try managedContext.save()
+            return group as! Group
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func testReturnPlants() -> [NSManagedObject]? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -58,7 +80,80 @@ struct CoreDataUtils {
         }
     }
     
-    func deleteAll() {
+    func returnGroupList() -> [String]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Group")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        var groupList: [String] = []
+        
+        do {
+            var groups = try managedContext.fetch(fetchRequest)
+            for g in groups {
+                var name = g.value(forKey: "groupName") ?? "No name"
+                groupList.append(name as! String)
+            }
+            return groupList
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func returnPlantList() -> [String]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Plant")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        var plantList: [String] = []
+        
+        do {
+            var plants = try managedContext.fetch(fetchRequest)
+            for p in plants {
+                var name = p.value(forKey: "plantName") ?? "No name"
+                plantList.append(name as! String)
+            }
+            return plantList
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func returnPlantAttributes(plantName: String) -> (String, Float, String, String, String)? {
+        // Returns format (group, growth level, plant ID, plant Type, RFID return)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Plant")
+        fetchRequest.predicate = NSPredicate(format: "plantName = %@", plantName)
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            var plantObjects = try managedContext.fetch(fetchRequest)
+            assert(plantObjects.count < 2) // There shouldn't be any duplicates
+            var plantObject = plantObjects.first
+            var group = plantObject?.value(forKey: "group") ?? "Default"
+            var growthLevel = plantObject?.value(forKey: "growthLevel") ?? 0.0
+            var plantID = plantObject?.value(forKey: "plantID") ?? "0"
+            var plantType = plantObject?.value(forKey: "plantType") ?? "None"
+            var rfidReturn = plantObject?.value(forKey: "rfidReturn") ?? "0"
+
+            return (group, growthLevel, plantID, plantType, rfidReturn) as! (String, Float, String, String, String)
+        } catch let error as NSError {
+            print("Couldn't fetch. \(error), \(error.userInfo)")
+            return nil
+        }
+    }
+    
+    func deleteAllPlants() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -73,7 +168,26 @@ struct CoreDataUtils {
                 managedContext.delete(managedObjectData)
             }
         } catch let error as NSError {
-            print("Detele all data in Plant error : \(error) \(error.userInfo)")
+            print("Delete all data in Plant error : \(error) \(error.userInfo)")
+        }
+    }
+    
+    func deleteAllGroups() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Group")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results {
+                let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
+                managedContext.delete(managedObjectData)
+            }
+        } catch let error as NSError {
+            print("Delete all data in Group error : \(error) \(error.userInfo)")
         }
     }
  

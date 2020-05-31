@@ -89,9 +89,14 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     func initializeTable(){
         // runs when the app launches
         
-        //var groupList: [String] // HUGH TODO. Contains list of every group taken from storage
+        var groupList: [String] = CoreDataUtils.shared.returnGroupList() ?? ["Default"] // Contains list of every group taken from storage
         
         // HUGH TODO. iterate through list of all plants, calling addPlant on them
+        for plant in CoreDataUtils.shared.returnPlantList()! {
+            var attributes = CoreDataUtils.shared.returnPlantAttributes(plantName: plant)!
+            var (group, growthLevel, plantID, plantType, rfidReturn) = attributes
+            addPlant(plant, plantType, group, growthLevel)
+        }
         
     }
 }

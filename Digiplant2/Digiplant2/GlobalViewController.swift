@@ -1,54 +1,34 @@
 //
-//  DetailsViewController.swift
+//  GlobalViewController.swift
 //  Digiplant2
 //
-//  Created by Will Blayney on 31/05/2020.
+//  Created by Hugh Blayney on 31/05/2020.
 //  Copyright © 2020 Will Blayney. All rights reserved.
 //
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class GlobalViewController: UIViewController {
+    
+    var commonName:String = ""
+    var searchQuery:String = ""
+    
+    func percentageEncode(input:String) -> String {
+        return input.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+    }
 
-    var NewPlantNameLocal: String = "Null"
-    var NewPlantTypeLocal: String = "Debug"
-    var NewGroupLocal: String = "Debug"
-    var NewGrowthLevelLocal: Float = 0.00
-    var NewLastWateredDateLocal: String = "Not Declared"
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        DrawContent(NewPlantName: NewPlantNameLocal, NewPlantType: NewPlantTypeLocal, NewGroup: NewGroupLocal, NewGrowthLevel: NewGrowthLevelLocal, NewLastWateredDate: NewLastWateredDateLocal)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return.lightContent
-        
-    }
-    
-    @IBOutlet weak var PlantName: UILabel!
-    @IBOutlet weak var PlantType: UILabel!
-    @IBOutlet weak var GrowthLevel: UILabel!
-    @IBOutlet weak var Group: UILabel!
-    @IBOutlet weak var LastWatered: UILabel!
-
-    
-    
-    func DrawContent(NewPlantName: String, NewPlantType: String, NewGroup: String, NewGrowthLevel: Float, NewLastWateredDate: String){
-        PlantName.text = NewPlantName
-        PlantType.text = NewPlantType
-        GrowthLevel.text = String(NewGrowthLevel)
-        Group.text = NewGroup
-        LastWatered.text = NewLastWateredDate
+        commonName = mainInstance.name
+        searchQuery = percentageEncode(input: commonName)
         
         // Based on code from https://learnappmaking.com/urlsession-swift-networking-how-to/
         
+        
+        
         let session = URLSession.shared
-        let url = URL(string: "https://plantsdb.xyz/search/Genus=Pinus")!
+        let url = URL(string: "https://plantsdb.xyz/search?Common_Name=" + searchQuery)!
 
         let task = session.dataTask(with: url) { data, response, error in
 
@@ -76,9 +56,9 @@ class DetailsViewController: UIViewController {
         }
 
         task.resume()
-        
+        // Do any additional setup after loading the view.
     }
-
+    
 
     /*
     // MARK: - Navigation

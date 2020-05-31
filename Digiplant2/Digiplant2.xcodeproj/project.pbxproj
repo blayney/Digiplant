@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		35076C7824838DB400283214 /* UniqueNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35076C7724838DB400283214 /* UniqueNames.txt */; };
+		35076C7E2483AE9000283214 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35076C7D2483AE9000283214 /* PageViewController.swift */; };
+		35076C822483C60800283214 /* LocalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35076C812483C60800283214 /* LocalViewController.swift */; };
+		35076C842483C97F00283214 /* global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35076C832483C97F00283214 /* global.swift */; };
+		35076C862483CD6000283214 /* GlobalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35076C852483CD6000283214 /* GlobalViewController.swift */; };
 		35CEF1CE248320CA003B33F0 /* PlantData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CC248320CA003B33F0 /* PlantData.xcdatamodeld */; };
 		35CEF1D0248325CC003B33F0 /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */; };
 		35CEF2062483518E003B33F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF2052483518E003B33F0 /* SettingsViewController.swift */; };
@@ -26,6 +30,10 @@
 
 /* Begin PBXFileReference section */
 		35076C7724838DB400283214 /* UniqueNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = UniqueNames.txt; path = Digiplant2/UniqueNames.txt; sourceTree = "<group>"; };
+		35076C7D2483AE9000283214 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		35076C812483C60800283214 /* LocalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalViewController.swift; sourceTree = "<group>"; };
+		35076C832483C97F00283214 /* global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = global.swift; sourceTree = "<group>"; };
+		35076C852483CD6000283214 /* GlobalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewController.swift; sourceTree = "<group>"; };
 		35CEF1CD248320CA003B33F0 /* PlantData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlantData.xcdatamodel; sourceTree = "<group>"; };
 		35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 		35CEF2052483518E003B33F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +89,10 @@
 				4094A97A2482C60300B14629 /* SceneDelegate.swift */,
 				4094A97C2482C60300B14629 /* ViewController.swift */,
 				4094A97E2482C60300B14629 /* Main.storyboard */,
+				35076C852483CD6000283214 /* GlobalViewController.swift */,
+				35076C812483C60800283214 /* LocalViewController.swift */,
+				35076C7D2483AE9000283214 /* PageViewController.swift */,
+				35076C832483C97F00283214 /* global.swift */,
 				4094A9812482C60700B14629 /* Assets.xcassets */,
 				4094A9832482C60700B14629 /* LaunchScreen.storyboard */,
 				4094A9862482C60700B14629 /* Info.plist */,
@@ -176,16 +188,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35076C842483C97F00283214 /* global.swift in Sources */,
 				4094A97D2482C60300B14629 /* ViewController.swift in Sources */,
 				35CEF1D0248325CC003B33F0 /* CoreDataUtils.swift in Sources */,
 				409218A024836F830033C00C /* DetailsViewController.swift in Sources */,
+				35076C7E2483AE9000283214 /* PageViewController.swift in Sources */,
 				4094A9792482C60300B14629 /* AppDelegate.swift in Sources */,
 				407F2DAC2483180D0001DF12 /* Plant.swift in Sources */,
 				40335B412483901000DAAC97 /* ManualWaterController.swift in Sources */,
+				35076C822483C60800283214 /* LocalViewController.swift in Sources */,
 				407F2DAA2482F3DD0001DF12 /* AddPlantViewController.swift in Sources */,
 				40335B4324839C8900DAAC97 /* SetTypeVC.swift in Sources */,
 				4094A97B2482C60300B14629 /* SceneDelegate.swift in Sources */,
 				35CEF1CE248320CA003B33F0 /* PlantData.xcdatamodeld in Sources */,
+				35076C862483CD6000283214 /* GlobalViewController.swift in Sources */,
 				35CEF2062483518E003B33F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

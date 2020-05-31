@@ -35,14 +35,16 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     
     func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
-        RecentIndexSelected = indexPath[0]
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsTransfer"{
             let destVC = segue.destination as! DetailsViewController
-            destVC.DrawContent(NewPlantName: PlantNames[RecentIndexSelected], NewPlantType: PlantTypes[RecentIndexSelected], NewGroup: Memberships[RecentIndexSelected], NewGrowthLevel: GrowthLevels[RecentIndexSelected])
-            
+            destVC.NewPlantNameLocal = PlantNames[RecentIndexSelected]
+            destVC.NewPlantTypeLocal = PlantTypes[RecentIndexSelected]
+            destVC.NewGroupLocal = Memberships[RecentIndexSelected]
+            destVC.NewGrowthLevelLocal = GrowthLevels[RecentIndexSelected]
         }
 
     }

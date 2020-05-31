@@ -10,10 +10,16 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    var NewPlantNameLocal: String = "Null"
+    var NewPlantTypeLocal: String = "Debug"
+    var NewGroupLocal: String = "Debug"
+    var NewGrowthLevelLocal: Float = 0.00
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        DrawContent(NewPlantName: NewPlantNameLocal, NewPlantType: NewPlantTypeLocal, NewGroup: NewGroupLocal, NewGrowthLevel: NewGrowthLevelLocal)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

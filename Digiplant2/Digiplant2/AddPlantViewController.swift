@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var plantGroupDict = ["Patio": ["Plant 1", "Plant 2"],
                           "Lawn": ["Plant 3]"]]
@@ -25,8 +25,10 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var Group: String = ""
     var PlantID: String = "10230"
     
+    
     @IBAction func confirmButton(_ sender: UIButton) {
         PlantName = nameField.text!
+        
         if PlantName == "" {
             PlantName = "No Name"
         }
@@ -46,6 +48,11 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Close the add plant screen
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func viewDidLoad() {

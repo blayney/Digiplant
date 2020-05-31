@@ -25,9 +25,12 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     // new add new button, with RFID activation call
     @IBOutlet weak var NewAddNewPlant: UIButton!
     
+    
+    // runs when the app loads
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        initializeTable()
 
                 
     }
@@ -79,6 +82,10 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         tableView.insertRows(at: [IndexPath(row: Plants.count - 1, section: 0)], with: .automatic)
         tableView.endUpdates()
         }
+    
+    func initializeTable(){
+        // runs when the app launches
+    }
 }
 
 

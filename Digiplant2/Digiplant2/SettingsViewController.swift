@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
         
     }
     var groupNameStr: String = ""
 
+    @IBOutlet weak var AddGroupField: UITextField!
     @IBOutlet weak var groupName: UITextField!
     @IBAction func groupAddButton(_ sender: Any) {
         groupNameStr = groupName.text!
@@ -23,7 +24,14 @@ class SettingsViewController: UIViewController {
             groupNameStr = "Default"
         }
         
+        AddGroupField.text = ""
+        
         guard let newGroup = CoreDataUtils.shared.saveGroup(name: groupNameStr) else { return }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func viewDidLoad() {

@@ -27,16 +27,12 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     var TempPlantID = ""
     
     var RecentIndexSelected: Int = 0
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return.lightContent
         
     }
     
-    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsTransfer"{
@@ -57,10 +53,22 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.allowsSelection = true
+        
         initializeTable()
 
                 
     }
+    @IBAction func GetRow(_ sender: UIButton) {
+        let buttonPostion = sender.convert(sender.bounds.origin, to: tableView)
+
+        if let indexPath = tableView.indexPathForRow(at: buttonPostion) {
+            let rowIndex =  indexPath.row
+            RecentIndexSelected = (indexPath.row) + 1
+            print(indexPath.row)
+        }
+        }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

@@ -149,22 +149,32 @@
                                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MQJ-jp-5om">
-                                                    <rect key="frame" x="250" y="37.5" width="150" height="1.5"/>
+                                                    <rect key="frame" x="250" y="38" width="103" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <rect key="contentStretch" x="0.45000000000000001" y="0.0" width="1" height="1"/>
                                                 </progressView>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RUK-gf-asV">
-                                                    <rect key="frame" x="250" y="56.5" width="150" height="1.5"/>
+                                                    <rect key="frame" x="250" y="57" width="103" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <rect key="contentStretch" x="0.45000000000000001" y="0.0" width="1" height="1"/>
                                                 </progressView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRi-bN-BeQ">
+                                                    <rect key="frame" x="0.0" y="-6" width="414" height="101"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="large">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        </preferredSymbolConfiguration>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="GetRow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eP7-dH-qoe"/>
+                                                        <segue destination="YQk-aX-BY7" kind="show" identifier="DetailsTransfer" id="7y0-jF-sEJ"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="YQk-aX-BY7" kind="show" identifier="DetailsTransfer" id="ZGS-o9-71I"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -176,7 +186,7 @@
                     <navigationItem key="navigationItem" id="LDs-bL-fI3"/>
                     <connections>
                         <outlet property="NewAddNewPlant" destination="Yup-OM-lRm" id="tjM-c6-4zU"/>
-                        <outlet property="tableView" destination="wYx-ur-3UQ" id="Xtd-gk-U9y"/>
+                        <outlet property="tableView" destination="wYx-ur-3UQ" id="urv-jm-LhL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -376,6 +386,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Stx-9M-VP5"/>
                     <connections>
+                        <outlet property="AddGroupField" destination="GP2-pL-YBT" id="53y-h8-vBb"/>
                         <outlet property="groupName" destination="GP2-pL-YBT" id="AZe-Bs-Q9t"/>
                     </connections>
                 </viewController>

@@ -129,7 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         
         var groupList: [String] = CoreDataUtils.shared.returnGroupList() ?? ["Default"] // Contains list of every group taken from storage
         
-        // HUGH TODO. iterate through list of all plants, calling addPlant on them
+        // Iterate through list of all plants, calling addPlant on them
         for plant in CoreDataUtils.shared.returnPlantList()! {
             var attributes = CoreDataUtils.shared.returnPlantAttributes(plantName: plant)!
             var (group, growthLevel, plantID, plantType, rfidReturn) = attributes

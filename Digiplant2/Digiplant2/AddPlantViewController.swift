@@ -52,11 +52,8 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier != "SetTypeTransfer"{
         let destVC = segue.destination as! ViewController
-            destVC.addPlant(PlantName, PlantType, Group, GrowthLevel)
-            
-        }
+        destVC.addPlant(PlantName, PlantType, Group, GrowthLevel)
     }
 
     
@@ -85,11 +82,6 @@ class AddPlantViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return plantGroupArray[row]
-    }
-    
-    @IBAction func UnwindToTwo(_ sender: UIStoryboardSegue){
-        
-        
     }
     
     

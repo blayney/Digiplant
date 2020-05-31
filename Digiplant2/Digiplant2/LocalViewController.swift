@@ -8,12 +8,22 @@
 
 import UIKit
 
-class LocalViewController: UIViewController {
+class LocalViewController: UIViewController{
+    
+    var testString:String = ""
 
+    @IBOutlet weak var plantName: UILabel!
+    @IBOutlet weak var plantType: UILabel!
+    @IBOutlet weak var growth: UILabel!
+    @IBOutlet weak var group: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        print(mainInstance.name)
+        plantName.text = mainInstance.name
+        plantType.text = mainInstance.type
+        growth.text = String(mainInstance.growth)
+        group.text = mainInstance.group
+        // Do any additional setutestStringp after loading the view.
     }
     
 

@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailsTransfer"{
-            let destVC = segue.destination as! DetailsViewController
+            let destVC = segue.destination as! PageViewController
             destVC.NewPlantNameLocal = PlantNames[RecentIndexSelected]
             destVC.NewPlantTypeLocal = PlantTypes[RecentIndexSelected]
             destVC.NewGroupLocal = Memberships[RecentIndexSelected]

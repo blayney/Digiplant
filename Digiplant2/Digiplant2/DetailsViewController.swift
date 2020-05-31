@@ -16,6 +16,8 @@ class DetailsViewController: UIViewController {
     var NewGrowthLevelLocal: Float = 0.00
     var NewLastWateredDateLocal: String = "Not Declared"
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,9 +35,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var GrowthLevel: UILabel!
     @IBOutlet weak var Group: UILabel!
     @IBOutlet weak var LastWatered: UILabel!
-    
-    // Just a debugging tool to output from the API
-    @IBOutlet weak var APILabel: UILabel!
+
     
     
     func DrawContent(NewPlantName: String, NewPlantType: String, NewGroup: String, NewGrowthLevel: Float, NewLastWateredDate: String){

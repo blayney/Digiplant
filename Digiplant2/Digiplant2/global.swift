@@ -7,3 +7,15 @@
 //
 
 import Foundation
+class Main {
+    var name:String = ""
+    var type:String = ""
+    var growth:Float = 0.0
+    var group:String = ""
+    
+    init(name:String) {
+        self.name=name
+    }
+}
+
+var mainInstance = Main(name:"My Global Class")

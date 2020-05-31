@@ -378,12 +378,36 @@
                                     <action selector="groupAddButton:" destination="fSJ-Sr-3Tb" eventType="touchUpInside" id="hba-ox-Qnt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEc-uw-Ogm">
+                                <rect key="frame" x="67" y="545" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Link Search Functionality"/>
+                                <connections>
+                                    <action selector="LinkSearchFunction:" destination="fSJ-Sr-3Tb" eventType="touchUpInside" id="vs9-iY-E6Y"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-VO-GTI">
+                                <rect key="frame" x="67" y="650" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBu-sE-tvS">
+                                <rect key="frame" x="226" y="650" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="SearchButton:" destination="fSJ-Sr-3Tb" eventType="touchUpInside" id="rbf-W7-inV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cDR-WV-Qza"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Stx-9M-VP5"/>
                     <connections>
+                        <outlet property="SearchBox" destination="J3c-VO-GTI" id="dy0-NV-S8Z"/>
                         <outlet property="groupName" destination="GP2-pL-YBT" id="AZe-Bs-Q9t"/>
                     </connections>
                 </viewController>

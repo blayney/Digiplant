@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35076C7824838DB400283214 /* UniqueNames.txt in Resources */ = {isa = PBXBuildFile; fileRef = 35076C7724838DB400283214 /* UniqueNames.txt */; };
 		35CEF1CE248320CA003B33F0 /* PlantData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CC248320CA003B33F0 /* PlantData.xcdatamodeld */; };
 		35CEF1D0248325CC003B33F0 /* CoreDataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */; };
 		35CEF2062483518E003B33F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CEF2052483518E003B33F0 /* SettingsViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35076C7724838DB400283214 /* UniqueNames.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = UniqueNames.txt; path = Digiplant2/UniqueNames.txt; sourceTree = "<group>"; };
 		35CEF1CD248320CA003B33F0 /* PlantData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlantData.xcdatamodel; sourceTree = "<group>"; };
 		35CEF1CF248325CC003B33F0 /* CoreDataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUtils.swift; sourceTree = "<group>"; };
 		35CEF2052483518E003B33F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		4094A96C2482C60300B14629 = {
 			isa = PBXGroup;
 			children = (
+				35076C7724838DB400283214 /* UniqueNames.txt */,
 				4094A9772482C60300B14629 /* Digiplant2 */,
 				4094A9762482C60300B14629 /* Products */,
 				40C839E024833F6C001E1CAD /* Recovered References */,
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35076C7824838DB400283214 /* UniqueNames.txt in Resources */,
 				4094A9852482C60700B14629 /* LaunchScreen.storyboard in Resources */,
 				4094A9822482C60700B14629 /* Assets.xcassets in Resources */,
 				4094A9802482C60300B14629 /* Main.storyboard in Resources */,

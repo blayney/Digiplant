@@ -136,7 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, AVCaptureMetadata
         }
     
     func initializeTable(){
-        CoreDataUtils.shared.deleteAllPlants()
+        //CoreDataUtils.shared.deleteAllPlants()
         print(CoreDataUtils.shared.returnPlantList()!)
         //print("ran initialize table")
         // runs when the app launches

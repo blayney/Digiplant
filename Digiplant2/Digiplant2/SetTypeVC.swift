@@ -9,9 +9,15 @@
 import UIKit
 
 class SetTypeVC: UIViewController {
-
     
     var SearchResults = [String]()
+
+    @IBOutlet weak var SearchField: UITextField!
+    var searchTerm: String = ""
+    @IBAction func SearchButton(_ sender: UIButton) {
+        searchTerm = SearchField.text!
+        SearchResults = CoreDataUtils.shared.searchNameString(searchTerm: searchTerm) ?? []
+    }
 
     
     override func viewDidLoad() {

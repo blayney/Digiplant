@@ -356,10 +356,10 @@
             </objects>
             <point key="canvasLocation" x="-2601.449275362319" y="1593.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Set TypeVC-->
         <scene sceneID="jCy-FR-RAO">
             <objects>
-                <viewController id="CqJ-kj-lxT" sceneMemberID="viewController">
+                <viewController id="CqJ-kj-lxT" customClass="SetTypeVC" customModule="Digiplant2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iik-Qo-eal">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -403,21 +403,27 @@
                                 <rect key="frame" x="5" y="96" width="361" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeE-jI-lYa">
-                                <rect key="frame" x="374" y="102" width="20" height="22"/>
+                                <rect key="frame" x="366" y="92" width="42" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="magnifyingglass" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="SearchButton:" destination="CqJ-kj-lxT" eventType="touchUpInside" id="j3s-D6-9I0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Zv7-AI-LCp"/>
                     </view>
                     <navigationItem key="navigationItem" id="NUj-uF-Pvx"/>
+                    <connections>
+                        <outlet property="SearchField" destination="Tt9-zM-Wmx" id="8vJ-8n-5yS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g4-gj-RMx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

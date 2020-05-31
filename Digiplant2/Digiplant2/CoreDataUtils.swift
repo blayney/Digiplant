@@ -167,6 +167,7 @@ struct CoreDataUtils {
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
                 managedContext.delete(managedObjectData)
             }
+            try managedContext.save()
         } catch let error as NSError {
             print("Delete all data in Plant error : \(error) \(error.userInfo)")
         }
@@ -186,6 +187,7 @@ struct CoreDataUtils {
                 let managedObjectData:NSManagedObject = managedObject as! NSManagedObject
                 managedContext.delete(managedObjectData)
             }
+            try managedContext.save()
         } catch let error as NSError {
             print("Delete all data in Group error : \(error) \(error.userInfo)")
         }

@@ -1,2 +1,2 @@
 # Digiplant
-Garden Managment App
+Rule over your garden with an iron fist (or watering can)
